@@ -1,0 +1,33 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #7e634e;
+}
+.brand img {
+    transition: transform 0.3s ease;
+}
+
+.brand:hover img {
+    transform: scale(1.2);
+}
+.lista{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.lista li{
+    margin-right: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+}
+
+.lista li:hover {
+    color: white;
+    cursor: pointer;
+}
+
+
+
