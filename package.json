@@ -2,7 +2,7 @@
   "name": "proyecto-coder",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://damianmay.github.io/Proyecto-React-May",
+  "homepage": "https://DamianMay.github.io/Proyecto-React-May",
   "type": "module",
   "scripts": {
     "dev": "vite",
