@@ -3,6 +3,11 @@
     justify-content: space-around;
     align-items: center;
     background-color: #7e634e;
+    position: sticky;
+    top: 0; /* Fija el elemento en la parte superior de la pantalla */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    padding: 10px;
+    
 }
 .brand img {
     transition: transform 0.3s ease;
@@ -27,6 +32,7 @@
 .lista li:hover {
     color: white;
     cursor: pointer;
+    text-decoration: underline;
 }
 
 

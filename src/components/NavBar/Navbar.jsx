@@ -1,18 +1,25 @@
 import "./navbar.css"
 import CartWidget from "./CartWidget"
 import logo from "../../assets/logo-sin-fondo.webp"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
     return (
         <nav className="navbar">
-            <div className="brand">
+            <Link to="/Proyecto-React-May" className="brand">
                 <img src={logo} width={120} alt="" />
-            </div>
+            </Link>
 
             <ul className="lista">
-                <li>NUESTRO CAFÉ</li>
-                <li>MAQUINA DE CAFÉ</li>
-                <li>EQUIPAMIENTOS</li>
+                <li>
+                    <Link to="/category/Cafe">NUESTRO CAFÉ</Link>
+                </li>
+                <li>
+                    <Link to="/category/Maquina-de-Cafe">MAQUINA DE CAFÉ</Link>
+                </li>
+                <li>
+                    <Link to="/category/Equipamientos">EQUIPAMIENTOS</Link>
+                </li>
             </ul>
 
             <CartWidget />
