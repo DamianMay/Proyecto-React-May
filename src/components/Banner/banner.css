@@ -1,0 +1,8 @@
+.banner {
+    width: 100%;
+    height: 300px;
+    background-image: url('/img/banner-principal.webp'); /* Añade una imagen de café que se vea atractiva */
+    background-size: cover;
+    background-position: center;
+    }
+

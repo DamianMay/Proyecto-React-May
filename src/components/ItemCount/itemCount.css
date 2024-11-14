@@ -1,0 +1,64 @@
+.item-count-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fafafa;
+    margin-top: 20px;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.button {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 2px solid #6b4f4f; /* Un borde elegante */
+    border-radius: 5px;
+    background-color: #e0c3a3; /* Un color cálido */
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: #c8a97e; /* Cambio de color al pasar el mouse */
+    transform: scale(1.05);
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+.count {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 15px;
+}
+
+.add-to-cart-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #6b4f4f;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart-button:hover {
+    background-color: #5a3f3f; /* Cambio de color al pasar el mouse */
+    transform: scale(1.05);
+}
+
+.add-to-cart-button:active {
+    transform: scale(0.95);
+}

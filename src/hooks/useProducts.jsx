@@ -1,31 +1,52 @@
-import { useState, useEffect } from "react"
-import { getProducts} from "../data/data"
-import { useParams } from "react-router-dom"
-
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import db from "../db/db.js";
 
 const useProducts = () => {
-    const [productos, setProductos] = useState([])
-    const [loading, setLoading] = useState(true)
-    const {idCategory} = useParams()
+    const [productos, setProductos] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const { idCategory } = useParams();
 
-    useEffect(() =>{
-        setLoading(true)
+    const getsProducts = () => {
+        setLoading(true);
+        const productsRef = collection(db, "products");
+        getDocs(productsRef)
+            .then((dataDb) => {
+                const productsDb = dataDb.docs.map((productDb) => {
+                    return { id: productDb.id, ...productDb.data() };
+                });
 
-        getProducts()
-            .then((data) => {
-                if(idCategory){
-                    const filterproducts= data.filter((product) => product.category === idCategory)
-                    setProductos(filterproducts)
-                }else{
-                    setProductos(data)
-                }
+                setProductos(productsDb);
             })
-            
-            .catch ((error) => console.error(error))
-            .finally(()=> setLoading(false))
-    },[idCategory])
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    };
 
-    return{ productos, loading}
-}
+    const getProductsByCategory = () => {
+        setLoading(true);
+        const productsRef = collection(db, "products");
+        const queryCategories = query(productsRef, where("category", "==", idCategory));
+        getDocs(queryCategories)
+            .then((dataDb) => {
+                const productsDb = dataDb.docs.map((productDb) => {
+                    return { id: productDb.id, ...productDb.data() };
+                });
+                setProductos(productsDb);
+            })
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    };
 
-export default useProducts
+    useEffect(() => {
+        if (idCategory) {
+            getProductsByCategory();
+        } else {
+            getsProducts();
+        }
+    }, [idCategory]);
+
+    return { productos, loading };
+};
+
+export default useProducts;
